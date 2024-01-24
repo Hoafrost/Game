@@ -40,7 +40,7 @@ public class Attack : MonoBehaviour
 
     }
 
-    void Slice()
+    public void Slice()
     {
         animator.SetTrigger("attack");
         Collider2D[] enemies = Physics2D.OverlapCircleAll(swordPoint.position, swordRange, Enemies);
@@ -50,6 +50,8 @@ public class Attack : MonoBehaviour
             
         }
     }
+
+    
 
     private void OnDrawGizmosSelected()
     {
