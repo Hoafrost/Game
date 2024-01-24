@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class skeletonSee : StateMachineBehaviour
+public class frogSee : StateMachineBehaviour
 {
     Transform player;
     Rigidbody2D rigidbody;
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -18,18 +17,16 @@ public class skeletonSee : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("see", false);
-        animator.SetBool("inRange", false);
-        if (Vector2.Distance(player.position, rigidbody.position) <= animator.GetComponent<Skeleton>().seeRange)
+        if (Vector2.Distance(player.position, rigidbody.position) <= animator.GetComponent<Frog>().seeRange)
         {
             animator.SetBool("see", true);
+
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("see", false);
+
     }
-
-
 }

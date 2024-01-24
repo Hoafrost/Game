@@ -7,9 +7,8 @@ public class skeleton_Run : StateMachineBehaviour
     private Vector2 m_Velocity = Vector2.zero;
     Transform player;
     Rigidbody2D rigidbody;
-    public float speed = 2.5f;
-    public float attackRange = 3.5f;
-    public float seeRange = 15f;
+
+    
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -23,15 +22,15 @@ public class skeleton_Run : StateMachineBehaviour
     {
         animator.GetComponent<Skeleton>().checkFlip();
         float sign = player.position.x - rigidbody.position.x;
-        Vector2 targetVelocity = new Vector2(sign /Mathf.Abs(sign) * Time.fixedDeltaTime * 100f, rigidbody.velocity.y);
+        Vector2 targetVelocity = new Vector2(sign /Mathf.Abs(sign) * Time.fixedDeltaTime * animator.GetComponent<Skeleton>().speed * 10f, rigidbody.velocity.y);
         rigidbody.velocity = Vector2.SmoothDamp(rigidbody.velocity, targetVelocity, ref m_Velocity, 0.05f);
 
         animator.SetBool("see", false);
         animator.SetBool("inRange", false);
-        if (Vector2.Distance(player.position, rigidbody.position) <= seeRange)
+        if (Vector2.Distance(player.position, rigidbody.position) <= animator.GetComponent<Skeleton>().seeRange)
         {
             animator.SetBool("see", true);
-            if (Vector2.Distance(player.position, rigidbody.position) <= attackRange)
+            if (Vector2.Distance(player.position, rigidbody.position) <= animator.GetComponent<Skeleton>().attackRange)
             {
                 if (sign > 0 && !animator.GetComponent<Skeleton>().FacingRight)
                 {

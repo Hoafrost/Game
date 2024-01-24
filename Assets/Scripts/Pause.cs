@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,6 +10,7 @@ public class Pause : MonoBehaviour
     public static bool isPaused;
     public GameObject pauseMenu;
     [SerializeField] private Text currentLevel, currentPoints, health, damage, speed;
+    [SerializeField] GameObject lvlUp;
 
     private void Start()
     {
@@ -19,7 +21,7 @@ public class Pause : MonoBehaviour
     }
     void Update()
     {
-        currentPoints.text = "Current Level : " + FindObjectOfType<Level>().points;
+        currentPoints.text = "Current points : " + FindObjectOfType<Level>().points;
         health.text = "Max health: " + FindObjectOfType<takeHit>().maxHealth;
         damage.text = "Damage: " + FindObjectOfType<Attack>().damage;
         speed.text = "Speed: " + FindObjectOfType<Movement>().speed;
@@ -53,6 +55,7 @@ public class Pause : MonoBehaviour
     {
         if (FindObjectOfType<Level>().points > 0)
         {
+            lvlUp.SetActive(false);
             FindObjectOfType<Level>().points--;
             FindObjectOfType<takeHit>().maxHealth += 20;
             FindObjectOfType<takeHit>().health = FindObjectOfType<takeHit>().maxHealth;
@@ -62,6 +65,7 @@ public class Pause : MonoBehaviour
     {
         if (FindObjectOfType<Level>().points > 0)
         {
+            lvlUp.SetActive(false);
             FindObjectOfType<Level>().points--;
             FindObjectOfType<Attack>().damage += 20;
             
@@ -71,6 +75,7 @@ public class Pause : MonoBehaviour
     {
         if (FindObjectOfType<Level>().points > 0)
         {
+            lvlUp.SetActive(false);
             FindObjectOfType<Level>().points--;
             FindObjectOfType<Movement>().speed += 20;
            

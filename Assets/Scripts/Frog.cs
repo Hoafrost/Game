@@ -12,6 +12,8 @@ public class Frog : Enemy
         maxHealth = 50;
         health = maxHealth;
         experience = 100;
+        speed = 25;
+        seeRange = 7;
         
 
     }

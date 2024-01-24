@@ -6,8 +6,6 @@ public class skeletonAttack : StateMachineBehaviour
 {
     Transform player;
     Rigidbody2D rigidbody;
-    public float attackRange = 3.5f;
-    public float seeRange = 15f;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -22,7 +20,7 @@ public class skeletonAttack : StateMachineBehaviour
     {
         animator.SetBool("see", false);
         animator.SetBool("inRange",false);
-        if (Vector2.Distance(player.position, rigidbody.position) <= seeRange)
+        if (Vector2.Distance(player.position, rigidbody.position) <= animator.GetComponent<Skeleton>().seeRange)
         {
             animator.SetBool("see", true);
 

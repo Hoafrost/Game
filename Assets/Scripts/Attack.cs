@@ -43,11 +43,15 @@ public class Attack : MonoBehaviour
     public void Slice()
     {
         animator.SetTrigger("attack");
+    }
+
+    public void hit()
+    {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(swordPoint.position, swordRange, Enemies);
         foreach (Collider2D enemy in enemies)
         {
             enemy.GetComponent<Enemy>().TakeHit(damage);
-            
+
         }
     }
 

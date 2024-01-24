@@ -6,6 +6,7 @@ public class Level : MonoBehaviour
 {
     [SerializeField] float experiece, maxExperience;
     public int level, points;
+    [SerializeField] GameObject lvlUp;
 
     private void Awake()
     {
@@ -13,6 +14,7 @@ public class Level : MonoBehaviour
         maxExperience = 100;
         level = 1;
         points = 0;
+        
 
     }
 
@@ -29,6 +31,7 @@ public class Level : MonoBehaviour
     {
         level++;
         points++;
+        lvlUp.SetActive(true);
         GetComponent<takeHit>().health = GetComponent<takeHit>().maxHealth;
         maxExperience += maxExperience * level;
  

@@ -5,51 +5,31 @@ using UnityEngine;
 
 public class Skeleton : Enemy
 {
-    private bool m_FacingRight = true ;
-    public bool FacingRight
-    {
-        get { return m_FacingRight; }
-        set { m_FacingRight = value; }
-    }
+
 
     public Transform daggerPoint;
     public float daggerRange;
     public float damage;
+    public float attackRange;
     public LayerMask Player;
 
     public override void Awake()
     {
         base.Awake();
-        maxHealth = 200;
+        maxHealth = 300;
         health = maxHealth;
         daggerRange = 1.3f;
         experience = 200;
-        damage = 30;
+        damage = 40;
+        seeRange = 15;
+        attackRange = 3.5f;
+        speed = 10;
 
     }
 
 
 
-    public void checkFlip()
-    {
-        if (rigidbody.velocity.x > 0 && !m_FacingRight)
-        {
-            flip();
-        }
-
-        else if (rigidbody.velocity.x < 0 && m_FacingRight)
-        {
-            flip();
-        }
-    }
-    public void flip()
-    {
-        m_FacingRight = !m_FacingRight;
-
-        Vector2 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
+    
     private void OnDrawGizmosSelected()
     {
         if (daggerPoint == null) return;

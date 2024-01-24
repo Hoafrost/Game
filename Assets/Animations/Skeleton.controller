@@ -97,8 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b44960223ded204cb3657194f1f1cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3.5
-  seeRange: 6
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -213,10 +211,10 @@ AnimatorStateMachine:
     m_Position: {x: 1960, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8684188606419688418}
-    m_Position: {x: 1980, y: -180, z: 0}
+    m_Position: {x: 1980, y: -170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1360806545131021710}
-    m_Position: {x: 2290, y: -120, z: 0}
+    m_Position: {x: 2300, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7125775441583825861}
     m_Position: {x: 1930, y: 50, z: 0}
@@ -271,9 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105fcb4e53409914f8c572f79c3e1201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  attackRange: 3.5
-  seeRange: 6
 --- !u!114 &7259491801960179656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -286,7 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccb1a2eed8ef5b4fad1bbe4c279d748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeRange: 6
 --- !u!1101 &7374165151673972484
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
