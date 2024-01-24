@@ -1,4 +1,4 @@
-
+    
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -21,6 +21,7 @@ public class Pause : MonoBehaviour
     }
     void Update()
     {
+        currentLevel.text = "Current Level : " + FindObjectOfType<Level>().level;
         currentPoints.text = "Current points : " + FindObjectOfType<Level>().points;
         health.text = "Max health: " + FindObjectOfType<takeHit>().maxHealth;
         damage.text = "Damage: " + FindObjectOfType<Attack>().damage;
